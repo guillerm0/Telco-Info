@@ -54,7 +54,7 @@ sub loadTadigData {
 
     my $variable =  [ ( grep(-d $_, map(File::Spec->catdir($_, qw(Telco Spec)), @INC)), File::Spec->curdir) ];
     my $csv = Text::CSV->new ({ binary => 1});
-    my $specFile = File::Spec->catfile($variable->[1], $variable->[0],'network_information.csv' );
+    my $specFile = File::Spec->catfile('', $variable->[0],'network_information.dat' );
 
     open my $io, "<", $specFile or die "$specFile: $!";
     while (my $row = $csv->getline ($io)) {
@@ -77,7 +77,7 @@ sub loadMccData {
     my %data;
     my $variable =  [ ( grep(-d $_, map(File::Spec->catdir($_, qw(Telco Spec)), @INC)), File::Spec->curdir) ];
     my $csv = Text::CSV->new ({ binary => 1});
-    my $specFile = File::Spec->catfile($variable->[1], $variable->[0],'network_information.csv' );
+    my $specFile = File::Spec->catfile('', $variable->[0],'network_information.dat' );
 
     open my $io, "<", $specFile or die "$specFile: $!";
     $csv->getline($io); #Read header

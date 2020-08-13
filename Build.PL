@@ -10,6 +10,8 @@ my $builder = Module::Build->new(
     dist_author         => q{Guillermo Martinez <guillermo.marcial@gmail.com>},
     dist_version_from   => 'lib/Telco/Info.pm',
     release_status      => 'stable',
+    script_files        => ['script/telco-info'],
+    dat_files           => {'lib/Telco/Spec/network_information.dat' =>'lib/Telco/Spec/network_information.dat' },
     configure_requires => {
         'Module::Build' => '0.4004',
     },
@@ -23,5 +25,5 @@ my $builder = Module::Build->new(
     },
     add_to_cleanup     => [ 'Telco-Info-*' ],
 );
-
+$builder->add_build_element('dat');
 $builder->create_build_script();

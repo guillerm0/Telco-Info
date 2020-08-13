@@ -1,7 +1,7 @@
 Build.PL
 Changes
 lib/Telco/Info.pm
-lib/Telco/Spec/network_information.csv
+lib/Telco/Spec/network_information.dat
 MANIFEST			This list of files
 README
 script/telco-info

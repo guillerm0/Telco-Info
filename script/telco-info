@@ -13,9 +13,14 @@ GetOptions(
     'imsi|i=s'  => \$imsi
 );
 
-
 my $telco = Telco::Info->new();
-print "############## Tadig ".$tadig." ##############\n";
-p $telco->findTelcoByTadig($tadig) if(defined($tadig));
-print "############## IMSI ".$imsi." ##############\n";
-p $telco->findTelcoByImsi($imsi) if(defined($imsi));
+
+if(defined($tadig)){
+    print "############## Tadig ".$tadig." ##############\n";
+    p $telco->findTelcoByTadig($tadig);
+}
+
+if(defined($imsi)){
+    print "############## IMSI ".$imsi." ##############\n";
+    p $telco->findTelcoByImsi($imsi);
+}

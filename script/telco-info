@@ -21,7 +21,7 @@ if(!defined($tadig) && !defined($imsi)){
         telco-info --tadig=DOMCL --imsi=370010000000000
 
 EOF
-
+exit;
 }
 
 my $telco = Telco::Info->new();

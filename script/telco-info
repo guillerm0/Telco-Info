@@ -13,6 +13,17 @@ GetOptions(
     'imsi|i=s'  => \$imsi
 );
 
+if(!defined($tadig) && !defined($imsi)){
+    print <<EOF;
+
+    Usage:
+        telco-info -t=DOMCL -i=370010000000000
+        telco-info --tadig=DOMCL --imsi=370010000000000
+
+EOF
+
+}
+
 my $telco = Telco::Info->new();
 
 if(defined($tadig)){

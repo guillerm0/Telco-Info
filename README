@@ -1,16 +1,43 @@
 Telco-Info
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+Get Telco information
 
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it to get an idea of the module's uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+USAGE
+    use Telco::Info;
 
+    my $telco = Telco::Info->new();
+    $telco->findTelcoByTadig('DOMCL');
+    #RETURNS
+    \ {
+        country        "Dominican Republic",
+        country_code   "DOM",
+        mcc_mnc        [
+            [0] {
+                mcc    370,
+                mnc    "02",
+                mnc3   "02"
+            }
+        ],
+        name           "Compa�ia Dominicana de Tel�fonos, S.A."
+    }
+
+    $telco->findTelcoByImsi('310840901471000');
+    #RETURNS
+    \ {
+        country        "Dominican Republic",
+        country_code   "DOM",
+        mccmnc         37001,
+        name           "Altice Hispaniola, S.A.",
+        tadig          [
+            [0] "DOM01"
+        ]
+    }
+
+There is a CLI tools that is used in the following way
+
+    Usage:
+        telco-info -t=DOMCL -i=370010000000000
+        telco-info --tadig=DOMCL --imsi=370010000000000
 
 INSTALLATION
 

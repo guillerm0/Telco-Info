@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+use Telco::Info;
+use Data::Printer;
+use Getopt::Long;
+
+my $tadig = undef;
+my $imsi = undef;
+
+GetOptions(
+    'tadig|t=s' => \$tadig,
+    'imsi|i=s'  => \$imsi
+);
+
+
+my $telco = Telco::Info->new();
+print "############## Tadig ".$tadig." ##############\n";
+p $telco->findTelcoByTadig($tadig) if(defined($tadig));
+print "############## IMSI ".$imsi." ##############\n";
+p $telco->findTelcoByImsi($imsi) if(defined($imsi));

@@ -1,0 +1,11 @@
+Build.PL
+Changes
+lib/Telco/Info.pm
+lib/Telco/Spec/network_information.csv
+MANIFEST			This list of files
+README
+script/telco-info
+t/00-load.t
+t/manifest.t
+t/pod-coverage.t
+t/pod.t
